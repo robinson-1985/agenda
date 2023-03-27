@@ -15,8 +15,10 @@
               <div class="container">
                 <div class="row">
                   <div class="col-lg-12">
-                    <br><br>
-              <form method="get" action="{% url 'busca' %}">
+
+                {% if 'accounts' not in request.path %}   
+                <br><br>
+                <form method="get" action="{% url 'busca' %}">
                 <div class="form-group row">
                   <div class="col-12">
                     <input class="form-control"
@@ -27,6 +29,7 @@
                     {% include 'parciais/_messages.html' %}
                 </div>
               </div>
+              {% endif %}
             </form>
         {% block conteudo %} {% endblock %}
     </div>
